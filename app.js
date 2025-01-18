@@ -239,8 +239,9 @@ app.on('ready', () => {
     resizable: config.get('poi.content.resizable', true),
     alwaysOnTop: config.get('poi.content.alwaysOnTop', false),
     // FIXME: titlebarStyle and transparent: https://github.com/electron/electron/issues/14129
-    titleBarStyle: process.platform === 'darwin' ? 'hiddenInset' : hideTitlebar ? 'hidden' : null,
-    transparent: process.platform === 'darwin',
+    titleBarStyle: process.platform === 'darwin' ? null : hideTitlebar ? 'hidden' : null,
+    // FIXME: click-through of transparency: https://github.com/electron/electron/issues/1335
+    transparent: false,
     frame: !hideTitlebar,
     enableLargerThanScreen: true,
     maximizable: config.get('poi.content.resizable', true),
